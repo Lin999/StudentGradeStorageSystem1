@@ -1,10 +1,4 @@
-﻿
-using GradeSystem.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GradeSystem.Model;
 
 namespace GradeSystem.Data.Repositories
 {

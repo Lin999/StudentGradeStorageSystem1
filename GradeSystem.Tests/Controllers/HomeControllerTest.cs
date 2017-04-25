@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using GradeSystem.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GradeSystem;
-using GradeSystem.Controllers;
+using System.Web.Mvc;
 
 namespace GradeSystem.Tests.Controllers
 {

@@ -1,13 +1,10 @@
 ﻿using GradeSystem.Data;
 using GradeSystem.Model;
 using GradeSystem.Service;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GradeSystem.Controllers
@@ -21,7 +18,6 @@ namespace GradeSystem.Controllers
         {
             _studentService = studentService;
         }
-
 
         // GET: Student
         public ActionResult Index()
@@ -39,7 +35,7 @@ namespace GradeSystem.Controllers
             }
 
             //Student student = db.Students.Find(id);
-            Student student = _studentService.GetStudent(id);           
+            Student student = _studentService.GetStudent(id);
 
             if (student == null)
             {
@@ -73,10 +69,8 @@ namespace GradeSystem.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
-
             return View(student);
         }
-
 
         // GET: Student/Edit/5
         public ActionResult Edit(int? id)
@@ -92,7 +86,6 @@ namespace GradeSystem.Controllers
             }
             return View(student);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -114,7 +107,6 @@ namespace GradeSystem.Controllers
             }
             return View(student);
         }
-
 
         public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
@@ -154,8 +146,6 @@ namespace GradeSystem.Controllers
             return RedirectToAction("Index");
         }
 
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -164,6 +154,5 @@ namespace GradeSystem.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
 }

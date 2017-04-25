@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GradeSystem.Model
 {
     public class Course
     {
-
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Number")]
         public int CourseID { get; set; }
@@ -24,5 +19,4 @@ namespace GradeSystem.Model
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
     }
-
 }

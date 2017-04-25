@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GradeSystem.Model;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GradeSystem.Model;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace GradeSystem.Data
@@ -13,7 +8,6 @@ namespace GradeSystem.Data
     {
         public SystemContext() : base("SystemContext")
         {
-
         }
 
         public DbSet<Student> Students { get; set; }
@@ -21,12 +15,12 @@ namespace GradeSystem.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
 
+        public DbSet<UserAccount> UserAccounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<Course>().HasMany(c => c.Teachers).WithMany(t => t.Courses).Map(i => i.MapLeftKey("CourseID").MapRightKey("TeacherID").ToTable("CourseTeacher"));
         }
-
     }
 }

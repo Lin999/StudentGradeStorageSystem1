@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GradeSystem.Model
 {
     public class Teacher
     {
         public int ID { get; set; }
+
         //You could remove the Required attribute and replace it with a minimum length parameter for the StringLength attribute:
         //[Required]
         [Display(Name = "Last Name"), StringLength(50, MinimumLength = 1)]
@@ -29,8 +27,8 @@ namespace GradeSystem.Model
         }
 
         //The Courses and Students properties are navigation properties
-        //they are typically defined as virtual so that they can take advantage of an Entity Framework feature called lazy loading. 
-        //In addition, if a navigation property can hold multiple entities, its type must implement the ICollection<T> Interface. 
+        //they are typically defined as virtual so that they can take advantage of an Entity Framework feature called lazy loading.
+        //In addition, if a navigation property can hold multiple entities, its type must implement the ICollection<T> Interface.
         //For example IList<T> qualifies but not IEnumerable<T> because IEnumerable<T> doesn't implement Add.
         public virtual ICollection<Course> Courses { get; set; }
     }

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GradeSystem.Model
 {
@@ -23,7 +20,7 @@ namespace GradeSystem.Model
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
-        //The DataType Enumeration provides for many data types, such as Date, Time, PhoneNumber, Currency, EmailAddress and more. 
+        //The DataType Enumeration provides for many data types, such as Date, Time, PhoneNumber, Currency, EmailAddress and more.
         //The DataType attribute can also enable the application to automatically provide type-specific features
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]

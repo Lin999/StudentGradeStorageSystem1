@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="27ea1ec5-2a6c-4939-8b96-bbc0e1852032" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53935/HelloWorldService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HelloWorldService.xsd" MetadataType="Schema" ID="9e7febbe-271d-4b53-8224-fb8b3fa401cb" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HelloWorldService.wsdl" MetadataType="Wsdl" ID="9ff30097-2088-496c-933f-f147ef1c051f" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="HellowordlService.wsdl" MetadataType="Wsdl" ID="3c693bd3-77ba-408e-b00f-71f4210b4409" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?wsdl" />
+    <MetadataFile FileName="HelloWorldService1.xsd" MetadataType="Schema" ID="749cdaca-2d81-40f5-95ca-1895d8247ab2" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HelloWorldService2.xsd" MetadataType="Schema" ID="b0354232-7634-4e29-a07f-106a5b0707da" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HelloWorldService.disco" MetadataType="Disco" ID="35dfddf3-1411-4007-a1c0-561d831570bb" SourceId="1" SourceUrl="http://localhost:53935/HelloWorldService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

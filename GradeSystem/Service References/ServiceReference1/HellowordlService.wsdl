@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://antra.net" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HellowordlService" targetNamespace="http://antra.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://localhost:53935/HelloWorldService.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://antra.net/Imports">
+      <xsd:import schemaLocation="http://localhost:53935/HelloWorldService.svc?xsd=xsd0" namespace="http://antra.net" />
+      <xsd:import schemaLocation="http://localhost:53935/HelloWorldService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:53935/HelloWorldService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FirstWCFService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHelloworldService_GetEmployeeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeName" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetEmployeeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetEmployeeName_HelloFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:HelloFault" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetEmployee_HelloFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:HelloFault" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Divide_InputMessage">
+    <wsdl:part name="parameters" element="tns:Divide" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Divide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DivideResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Divide_HelloFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:HelloFault" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Multiply_InputMessage">
+    <wsdl:part name="parameters" element="tns:Multiply" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Multiply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MultiplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_Multiply_HelloFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:HelloFault" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetAllEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetAllEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloworldService_GetAllEmployees_HelloFaultFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:HelloFault" />
+  </wsdl:message>
+  <wsdl:portType name="IHelloworldService">
+    <wsdl:operation name="GetEmployeeName">
+      <wsdl:input wsaw:Action="http://antra.net/IHelloworldService/GetEmployeeName" message="tns:IHelloworldService_GetEmployeeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://antra.net/IHelloworldService/GetEmployeeNameResponse" message="tns:IHelloworldService_GetEmployeeName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://antra.net/IHelloworldService/GetEmployeeNameHelloFaultFault" name="HelloFaultFault" message="tns:IHelloworldService_GetEmployeeName_HelloFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <wsdl:input wsaw:Action="http://antra.net/IHelloworldService/GetEmployee" message="tns:IHelloworldService_GetEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://antra.net/IHelloworldService/GetEmployeeResponse" message="tns:IHelloworldService_GetEmployee_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://antra.net/IHelloworldService/GetEmployeeHelloFaultFault" name="HelloFaultFault" message="tns:IHelloworldService_GetEmployee_HelloFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Divide">
+      <wsdl:input wsaw:Action="http://antra.net/IHelloworldService/Divide" message="tns:IHelloworldService_Divide_InputMessage" />
+      <wsdl:output wsaw:Action="http://antra.net/IHelloworldService/DivideResponse" message="tns:IHelloworldService_Divide_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://antra.net/IHelloworldService/DivideHelloFaultFault" name="HelloFaultFault" message="tns:IHelloworldService_Divide_HelloFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Multiply">
+      <wsdl:input wsaw:Action="http://antra.net/IHelloworldService/Multiply" message="tns:IHelloworldService_Multiply_InputMessage" />
+      <wsdl:output wsaw:Action="http://antra.net/IHelloworldService/MultiplyResponse" message="tns:IHelloworldService_Multiply_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://antra.net/IHelloworldService/MultiplyHelloFaultFault" name="HelloFaultFault" message="tns:IHelloworldService_Multiply_HelloFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input wsaw:Action="http://antra.net/IHelloworldService/GetAllEmployees" message="tns:IHelloworldService_GetAllEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://antra.net/IHelloworldService/GetAllEmployeesResponse" message="tns:IHelloworldService_GetAllEmployees_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://antra.net/IHelloworldService/GetAllEmployeesHelloFaultFault" name="HelloFaultFault" message="tns:IHelloworldService_GetAllEmployees_HelloFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="HellowordlService">
+    <wsdl:port name="BasicHttpBinding_IHelloworldService" binding="i0:BasicHttpBinding_IHelloworldService">
+      <soap:address location="http://localhost:53935/HelloWorldService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

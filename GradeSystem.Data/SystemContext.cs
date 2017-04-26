@@ -16,6 +16,7 @@ namespace GradeSystem.Data
         public DbSet<Enrollment> Enrollments { get; set; }
 
         public DbSet<UserAccount> UserAccounts { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

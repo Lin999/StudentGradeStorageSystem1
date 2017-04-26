@@ -36,6 +36,6 @@ namespace GradeSystem.Model
         [DataType(DataType.Password)]
         public string ConfirmPassworld { get; set; }
 
-        public string Salt { get; set; }
+        public string UserRole { get; set; }
     }
 }

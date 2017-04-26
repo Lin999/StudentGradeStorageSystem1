@@ -6,6 +6,8 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using GradeSystem.ServiceReference1;
+
 
 namespace GradeSystem.Controllers
 {
@@ -23,9 +25,40 @@ namespace GradeSystem.Controllers
         public ActionResult Index()
         {
             var students = from s in db.Students select s;
+            var student = _studentService.GetAllStudents();
 
             return View(students.ToList());
+
+            //consuming WCF service
+            //HelloworldServiceClient wcf = new HelloworldServiceClient();
+
+            //wcf.GetEmployee(1);
+
+            //var ans = wcf.Multiply(10, 10);
+
+            //var emp = wcf.GetAllEmployees();
+
+            //return View(emp.ToList());
         }
+
+        //public ActionResult Wcf()
+        //{
+        //    //var students = from s in db.Students select s;
+        //    //Student student = _studentService.GetAllStudents();
+
+        //    //return View(students.ToList());
+
+        //    //consuming WCF service
+        //    HelloworldServiceClient wcf = new HelloworldServiceClient();
+
+        //    wcf.GetEmployee(1);
+
+        //    var ans = wcf.Multiply(10, 10);
+
+        //    var emp = wcf.GetAllEmployees();
+
+        //    return View(emp.ToList());
+        //}
 
         public ActionResult Details(int? id)
         {

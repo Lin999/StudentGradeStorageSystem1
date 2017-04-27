@@ -13,7 +13,7 @@ namespace GradeSystem.Controllers
 {
     public class StudentController : Controller
     {
-        private SystemContext db = new SystemContext();
+        
         private readonly IStudentService _studentService;
 
         public StudentController(IStudentService studentService)
@@ -60,7 +60,7 @@ namespace GradeSystem.Controllers
         //    return View(emp.ToList());
         //}
 
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
@@ -85,7 +85,7 @@ namespace GradeSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LastName,FirstMidName,EnrollmentDate")] Student student)
+        public ActionResult Create([Bind(Include = "ID, LastName, FirstMidName, Course, Grade, EnrollmentDate")] Student student)
         {
             try
             {
@@ -108,13 +108,13 @@ namespace GradeSystem.Controllers
         }
 
         // GET: Student/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = _studentService.GetStudent(id);
+            var student = _studentService.GetStudent(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -124,7 +124,7 @@ namespace GradeSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID, LastName, FirstMidName, EnrollmentDate")]Student student)
+        public ActionResult Edit([Bind(Include = "ID, LastName, FirstMidName,Course,Grade,EnrollmentDate")]Student student)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace GradeSystem.Controllers
             return View(student);
         }
 
-        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        public ActionResult Delete(int id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -155,7 +155,8 @@ namespace GradeSystem.Controllers
             {
                 ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
             }
-            Student student = db.Students.Find(id);
+            //Student student = db.Students.Find(id);
+            Student student = _studentService.GetStudent(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -184,13 +185,5 @@ namespace GradeSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

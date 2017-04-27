@@ -8,7 +8,7 @@ namespace GradeSystem.Service
     {
         IEnumerable<Student> GetAllStudents(string name = null);
 
-        Student GetStudent(int? id);
+        Student GetStudent(int id);
 
         Student GetStudent(string name);
 

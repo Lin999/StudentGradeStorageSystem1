@@ -30,7 +30,7 @@ namespace GradeSystem.Service
         }
         public void UpdateStudent(Student student)
         {
-            throw new NotImplementedException();
+            _studentRepository.Edit(student);
         }
 
         public void Save()
@@ -38,14 +38,14 @@ namespace GradeSystem.Service
             _studentRepository.Save();
         }
 
-        public Student GetStudent(int? id)
+        public Student GetStudent(int id)
         {
-            throw new NotImplementedException();
+            return _studentRepository.GetStudentById(id);
         }
 
         public Student GetStudent(string name)
         {
-            throw new NotImplementedException();
+            return _studentRepository.GetStudentByLastName(name);
         }
     }
 }

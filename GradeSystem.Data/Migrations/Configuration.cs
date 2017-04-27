@@ -99,6 +99,12 @@ namespace GradeSystem.Data.Migrations
                 }
             }
 
+            var Roles = new List<Role>
+            {
+                new Role { RoleID = 1, RoleName = "Admin" },
+                new Role { RoleID = 2, RoleName = "Student" }
+            };
+
         }
     }
 }

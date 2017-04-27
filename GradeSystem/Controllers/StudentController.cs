@@ -13,7 +13,8 @@ namespace GradeSystem.Controllers
 {
     public class StudentController : Controller
     {
-        
+        private SystemContext db = new SystemContext();
+
         private readonly IStudentService _studentService;
 
         public StudentController(IStudentService studentService)
@@ -124,7 +125,7 @@ namespace GradeSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID, LastName, FirstMidName,Course,Grade,EnrollmentDate")]Student student)
+        public ActionResult Edit([Bind(Include = "LastName, FirstMidName,Course,Grade,EnrollmentDate")]Student student)
         {
             try
             {
@@ -142,6 +143,8 @@ namespace GradeSystem.Controllers
                 //Log the error (uncomment dex variable name and add a line here to write a log.
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
+            PopulateEnrollmentDropDownList(student.Enrollments);
+
             return View(student);
         }
 
@@ -183,6 +186,14 @@ namespace GradeSystem.Controllers
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
             return RedirectToAction("Index");
+        }
+
+        private void PopulateEnrollmentDropDownList(object selectedEnrollment = null)
+        {
+            var enrollmentQuery = from c in db.Enrollments
+                              orderby c.Grade
+                              select c;
+            ViewBag.EnrollmentID = new SelectList(enrollmentQuery, "EnrollmentID", "Grade", selectedEnrollment);
         }
 
     }

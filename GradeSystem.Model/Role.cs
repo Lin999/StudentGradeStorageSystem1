@@ -12,7 +12,7 @@ namespace GradeSystem.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int RoleID { get; set; }
 
         public string RoleName { get; set; }
     }

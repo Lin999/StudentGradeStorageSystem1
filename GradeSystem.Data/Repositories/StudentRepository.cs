@@ -5,21 +5,16 @@ namespace GradeSystem.Data.Repositories
 {
     public class StudentRepository : GenericRepository<Student>, IStudentRepository
     {
-        private readonly SystemContext _context;
+
 
         public StudentRepository(SystemContext context) : base(context)
         {
-            _context = context;
+       
         }
-
-        public Student GetById(int? id)
+        public Student GetStudentByLastName(string lastName)
         {
-            return FindBy(x => x.ID == id).FirstOrDefault();
-        }
-
-        public Student GetByName(string name)
-        {
-            return FindBy(x => x.LastName == name).FirstOrDefault();
+            var student = _context.Students.FirstOrDefault(s => s.LastName == lastName);
+            return student;
         }
     }
 }

@@ -24,8 +24,8 @@ namespace GradeSystem.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            var students = from s in db.Students select s;
-            var student = _studentService.GetAllStudents();
+            //var students = from s in db.Students select s;
+            var students = _studentService.GetAllStudents();
 
             return View(students.ToList());
 
@@ -91,8 +91,10 @@ namespace GradeSystem.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Students.Add(student);
-                    db.SaveChanges();
+                    _studentService.CreateStudent(student);
+
+                    _studentService.Save();
+
                     return RedirectToAction("Index");
                 }
             }
@@ -112,7 +114,7 @@ namespace GradeSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = _studentService.GetStudent(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -128,8 +130,10 @@ namespace GradeSystem.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(student).State = EntityState.Modified;
-                    db.SaveChanges();
+                    _studentService.UpdateStudent(student);
+
+                    _studentService.Save();
+
                     return RedirectToAction("Index");
                 }
             }
@@ -168,8 +172,9 @@ namespace GradeSystem.Controllers
                 //Student student = db.Students.Find(id);
                 //db.Students.Remove(student);
                 Student studentToDelete = new Student() { ID = id };
-                db.Entry(studentToDelete).State = EntityState.Deleted;
-                db.SaveChanges();
+                //db.Entry(studentToDelete).State = EntityState.Deleted;
+                //db.SaveChanges();
+                _studentService.DeleteStudent(studentToDelete);
             }
             catch (RetryLimitExceededException /* dex */)
             {

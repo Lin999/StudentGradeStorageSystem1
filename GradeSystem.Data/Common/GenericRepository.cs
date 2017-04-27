@@ -7,10 +7,10 @@ namespace GradeSystem.Data.Repositories
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly SystemContext _context;
-        private readonly IDbSet<T> _dbset;
+        protected readonly SystemContext _context;
+        protected readonly IDbSet<T> _dbset;
 
-        public GenericRepository(SystemContext context)
+        protected GenericRepository(SystemContext context)
         {
             _context = context;
             _dbset = context.Set<T>();

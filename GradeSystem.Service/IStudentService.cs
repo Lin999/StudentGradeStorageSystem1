@@ -1,4 +1,5 @@
-﻿using GradeSystem.Model;
+﻿using GradeSystem.Data.Repositories;
+using GradeSystem.Model;
 using System.Collections.Generic;
 
 namespace GradeSystem.Service
@@ -16,5 +17,7 @@ namespace GradeSystem.Service
         void DeleteStudent(Student student);
 
         void UpdateStudent(Student student);
+
+        void Save();
     }
 }

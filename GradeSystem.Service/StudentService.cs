@@ -7,39 +7,43 @@ namespace GradeSystem.Service
 {
     public class StudentService : IStudentService
     {
-        private readonly IStudentRepository _istudentRepository;
+        private readonly IStudentRepository _studentRepository;
 
-        public StudentService(IStudentRepository istudentRepository)
+        public StudentService(IStudentRepository studentRepository)
         {
-            _istudentRepository = istudentRepository;
+            _studentRepository = studentRepository;
         }
 
         public void CreateStudent(Student student)
         {
-            _istudentRepository.Add(student);
+            _studentRepository.Add(student);
         }
 
         public void DeleteStudent(Student student)
         {
-            _istudentRepository.Delete(student);
+            _studentRepository.Delete(student);
         }
 
         public IEnumerable<Student> GetAllStudents(string name)
         {
-            return _istudentRepository.GetAll();
+            return _studentRepository.GetAll();
+        }
+        public void UpdateStudent(Student student)
+        {
+            throw new NotImplementedException();
         }
 
-        public Student GetStudent(string name)
+        public void Save()
         {
-            return _istudentRepository.GetByName(name);
+            _studentRepository.Save();
         }
 
         public Student GetStudent(int? id)
         {
-            return _istudentRepository.GetById(id);
+            throw new NotImplementedException();
         }
 
-        public void UpdateStudent(Student student)
+        public Student GetStudent(string name)
         {
             throw new NotImplementedException();
         }

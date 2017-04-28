@@ -74,7 +74,7 @@ namespace GradeSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View();
             }
 
             User user = new User() { Email = model.Email, Password = model.Password };
@@ -95,7 +95,7 @@ namespace GradeSystem.Controllers
             else
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
-                return View(model);
+                return View();
             }
         }
 

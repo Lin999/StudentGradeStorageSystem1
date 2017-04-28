@@ -3,14 +3,16 @@ using System.Web.Mvc;
 
 namespace GradeSystem.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin,Student")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

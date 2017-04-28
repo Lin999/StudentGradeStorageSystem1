@@ -9,6 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GradeSystem.App_Start;
+using System.Web.Security;
+using GradeSystem.Model;
+using GradeSystem.ViewModels;
+using GradeSystem.Data.Repositories;
 
 namespace GradeSystem.Controllers
 {
@@ -75,7 +79,7 @@ namespace GradeSystem.Controllers
 
             User user = new User() { Email = model.Email, Password = model.Password };
 
-            user = Repository.GetUserDetails(user);
+            user = UserRepository.GetUserDetails(user);
 
             if (user != null)
             {
